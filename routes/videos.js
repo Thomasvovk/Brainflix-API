@@ -11,10 +11,6 @@ function getVideos() {
   return JSON.parse(videosData);
 }
 
-// function setVideos(videos) {
-//   fs.writeFileSync(filepath, JSON.stringify(videos));
-// }
-
 // GET /videos
 // POST /videos
 
@@ -24,9 +20,18 @@ router.get("/", (_req, res) => {
   console.log(videos);
 });
 
-router.post("/", (req, res) => {
-  res.send({ msg: "User POST Endpoint reached" });
+router.get("/:id", (req, res) => {
+  const requestedID = req.params.id;
+  const foundVideo = getVideos().find((video) => {
+    return video.id === requestedID;
+  });
+  if (foundVideo) {
+    return res.json(foundVideo);
+  } else {
+    return res.status(404).json({
+      error: `Video is not found with this ID${requestedID}`,
+    });
+  }
 });
 
-// Export the router so that the app can access it from the index.js file
 module.exports = router;
