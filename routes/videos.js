@@ -1,7 +1,8 @@
+const { time } = require("console");
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
-
+const { v4: uuidv4 } = require("uuid");
 const filepath = "./data/videos.json";
 
 // File Reading
@@ -14,9 +15,19 @@ function getVideos() {
 // GET /videos
 // POST /videos
 
+router.use(express.static("public"));
+
 router.get("/", (_req, res) => {
   const videos = getVideos();
-  res.json(videos);
+  const selectedInfo = videos.map((video) => {
+    return {
+      id: video.id,
+      title: video.title,
+      channel: video.channel,
+      image: video.image,
+    };
+  });
+  res.json(selectedInfo);
   console.log(videos);
 });
 
@@ -32,6 +43,33 @@ router.get("/:id", (req, res) => {
       error: `Video is not found with this ID${requestedID}`,
     });
   }
+});
+
+router.post("/", (req, res) => {
+  const { title, description } = req.body;
+
+  const newVideo = {
+    id: uuidv4(),
+    title: title,
+    channel: "Thomas Vovk",
+    image: "https://i.imgur.com/l2Xfgpl.jpg",
+    description: description,
+    views: "1,001,023",
+    likes: "110,985",
+    duration: "4:01",
+
+    comments: [],
+  };
+
+  const videos = getVideos();
+  videos.push(newVideo);
+  fs.writeFile(filepath, JSON.stringify(videos), (err) => {
+    if (err) {
+      console.log("Error occured while writing data");
+      return;
+    }
+    res.send(newVideo);
+  });
 });
 
 module.exports = router;
