@@ -28,7 +28,6 @@ router.get("/", (_req, res) => {
     };
   });
   res.json(selectedInfo);
-  console.log(videos);
 });
 
 router.get("/:id", (req, res) => {
@@ -52,7 +51,7 @@ router.post("/", (req, res) => {
     id: uuidv4(),
     title: title,
     channel: "Thomas Vovk",
-    image: "https://i.imgur.com/l2Xfgpl.jpg",
+    image: "https://i.imgur.com/9rqDsHR.gif",
     description: description,
     views: "1,001,023",
     likes: "110,985",
