@@ -276,7 +276,7 @@
     "id": "76ca28c0-7dea-4553-887f-8e5129a80fc3",
     "title": "Train Travel On Track For Safety",
     "channel": "Scotty Cranmer",
-    "image": "http://localhost:8080/images/image7.jpeg",
+    "image": "http://localhost:8080/images/image8.jpeg",
     "description": "Traveling by train can be convenient, enjoyable and economical. You can minimize your risk of injury, illness, and theft by taking a few simple precautions. Before you travel, you should pack only the necessities. This will make your luggage easy to carry and store during your travels. You should always assume that the tap water on the train is not potable. Whenever it is possible, stock up on bottles of water to reduce the risk of dehydration. Remember, never accept food or drinks from strangers!",
     "views": "3,092,284",
     "likes": "75,985",
@@ -300,17 +300,7 @@
       }
     ]
   },
-  {
-    "id": "10505a2e-9b6f-474c-9555-0d9efbf2d3c0",
-    "title": "Test title",
-    "channel": "Thomas Vovk",
-    "image": "http://localhost:8080/images/image8.jpeg",
-    "description": "hey Team",
-    "views": "1,001,023",
-    "likes": "110,985",
-    "duration": "4:01",
-    "comments": []
-  },
+
   {
     "id": "6bd12be0-1537-4d53-b150-ee9aa4d2914b",
     "title": "s",
